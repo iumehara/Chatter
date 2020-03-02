@@ -1,0 +1,30 @@
+### Elixir ###
+/_build
+/cover
+/deps
+/doc
+/.fetch
+erl_crash.dump
+*.ez
+*.beam
+/config/*.secret.exs
+.elixir_ls/
+
+### Elixir Patch ###
+
+# Temporary files
+/tmp
+
+# Static artifacts
+/node_modules
+/assets/node_modules
+
+/priv/static/
+
+# Installer-related files
+/installer/_build
+/installer/tmp
+/installer/doc
+/installer/deps
+
+.idea

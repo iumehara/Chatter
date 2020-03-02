@@ -24,6 +24,28 @@ defmodule ChatterWeb.GroupControllerTest do
     end
   end
 
+  describe "show" do
+    test "renders a group with associated members", %{conn: conn} do
+      {:ok, group} = Chat.create_group(%{name: "test name"})
+      {:ok, message} = Chat.create_message(%{content: "first message", group_id: group.id})
+
+      conn = get(conn, Routes.group_path(conn, :show, group.id))
+
+      assert %{
+               "id" => group_id,
+               "name" => "test name",
+               "messages" => [
+                 %{
+                   "id" => message_id,
+                   "content" => "first message"
+                 }
+               ]
+             } = json_response(conn, 200)["data"]
+      assert group_id == group.id
+      assert message_id == message.id
+    end
+  end
+
   describe "create group" do
     test "renders group when data is valid", %{conn: conn} do
       conn = post(conn, Routes.group_path(conn, :create), group: @create_attrs)

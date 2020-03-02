@@ -8,6 +8,8 @@ defmodule Chatter.Chat.Group do
     field :name, :string
 
     timestamps()
+
+    has_many :messages, Chatter.Chat.Message
   end
 
   @doc false

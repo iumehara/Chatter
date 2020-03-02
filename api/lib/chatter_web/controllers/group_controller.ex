@@ -1,6 +1,5 @@
 defmodule ChatterWeb.GroupController do
   use ChatterWeb, :controller
-
   alias Chatter.Chat
   alias Chatter.Chat.Group
 
@@ -23,21 +22,5 @@ defmodule ChatterWeb.GroupController do
   def show(conn, %{"id" => id}) do
     group = Chat.get_group!(id)
     render(conn, "show.json", group: group)
-  end
-
-  def update(conn, %{"id" => id, "group" => group_params}) do
-    group = Chat.get_group!(id)
-
-    with {:ok, %Group{} = group} <- Chat.update_group(group, group_params) do
-      render(conn, "show.json", group: group)
-    end
-  end
-
-  def delete(conn, %{"id" => id}) do
-    group = Chat.get_group!(id)
-
-    with {:ok, %Group{}} <- Chat.delete_group(group) do
-      send_resp(conn, :no_content, "")
-    end
   end
 end

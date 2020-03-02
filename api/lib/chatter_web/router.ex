@@ -7,5 +7,6 @@ defmodule ChatterWeb.Router do
 
   scope "/api", ChatterWeb do
     pipe_through :api
+    resources "/groups", GroupController, except: [:new, :edit, :update, :delete]
   end
 end

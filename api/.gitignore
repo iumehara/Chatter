@@ -28,3 +28,4 @@ erl_crash.dump
 /installer/deps
 
 .idea
+*.iml

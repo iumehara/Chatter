@@ -1,26 +1,47 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import './App.scss'
+import {BrowserRouter, Route, Switch, useParams} from "react-router-dom"
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <BrowserRouter>
+      <div className='App'>
+        <Header/>
+        <Switch>
+          <Route path='/groups/new'>
+            <NewGroupPage/>
+          </Route>
+          <Route path='/groups/:groupId'>
+            <GroupDetailPage/>
+          </Route>
+          <Route path='/'>
+            <HomePage/>
+          </Route>
+        </Switch>
+      </div>
+    </BrowserRouter>
+  )
 }
 
-export default App;
+export default App
+
+function Header() {
+  return (
+    <div className='Header'>
+      <div className='name'>Chatter</div>
+    </div>
+  )
+}
+
+function NewGroupPage() {
+  return <h1>NEW GROUP</h1>
+}
+
+function GroupDetailPage() {
+  const {groupId} = useParams()
+  return <h1>{`GROUP DETAIL ${groupId}`}</h1>
+}
+
+function HomePage() {
+  return <h1>My Chat Groups</h1>
+}

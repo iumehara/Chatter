@@ -1,27 +1,29 @@
 import React from 'react'
 import './App.scss'
-import {Route, Router, Switch, useParams} from "react-router-dom"
+import {Route, Router, Switch} from "react-router-dom"
 import {createBrowserHistory} from 'history'
 import HomePage from './Component/HomePage/HomePage'
+import GroupDetailsPage from './Component/GroupDetailsPage/GroupDetailsPage'
 import GroupRepo from './Repo/GroupRepo'
 import RedirectService from './Service/RedirectService'
 
 function App() {
   const browserHistory = createBrowserHistory()
   const redirectService = new RedirectService(browserHistory)
+  const groupRepo = new GroupRepo()
   return (
     <Router history={browserHistory}>
       <div className='App'>
-        <Header/>
+        <Header redirectService={redirectService}/>
         <Switch>
           <Route path='/groups/new'>
             <NewGroupPage/>
           </Route>
           <Route path='/groups/:groupId'>
-            <GroupDetailPage/>
+            <GroupDetailsPage groupRepo={groupRepo} redirectService={redirectService}/>
           </Route>
           <Route path='/'>
-            <HomePage groupRepo={new GroupRepo()} redirectService={redirectService}/>
+            <HomePage groupRepo={groupRepo} redirectService={redirectService}/>
           </Route>
         </Switch>
       </div>
@@ -31,9 +33,9 @@ function App() {
 
 export default App
 
-function Header() {
+function Header(props) {
   return (
-    <div className='Header'>
+    <div className='Header' onClick={() => props.redirectService.getHomePage()}>
       <div className='name'>Chatter</div>
     </div>
   )
@@ -42,9 +44,3 @@ function Header() {
 function NewGroupPage() {
   return <h1>NEW GROUP</h1>
 }
-
-function GroupDetailPage() {
-  const {groupId} = useParams()
-  return <h1>{`GROUP DETAIL ${groupId}`}</h1>
-}
-

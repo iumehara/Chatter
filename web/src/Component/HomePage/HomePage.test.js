@@ -34,7 +34,7 @@ describe('HomePage', () => {
     await waitForElement(() => screen.getByText(/Group 1/i))
     fireEvent.click(screen.getByText(/Group 1/i))
 
-    expect(redirectService.getGroupDetailPageCalledWith).toEqual('1234567890')
+    expect(redirectService.getGroupDetailsPageCalledWith).toEqual('1234567890')
   })
 })
 
@@ -51,9 +51,9 @@ class StubGroupRepo {
 }
 
 class SpyRedirectService {
-  getGroupDetailPageCalledWith = null
+  getGroupDetailsPageCalledWith = null
 
-  getGroupDetailPage(groupId) {
-    this.getGroupDetailPageCalledWith = groupId
+  getGroupDetailsPage(groupId) {
+    this.getGroupDetailsPageCalledWith = groupId
   }
 }

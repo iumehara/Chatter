@@ -12,4 +12,10 @@ export default class GroupRepo {
       .then(response => response.json())
       .then(json => json.data)
   }
+
+  getDetails(groupId) {
+    return fetchWrapper(`${this.baseUrl}/groups/${groupId}`, {headers: this.headers})
+      .then(response => response.json())
+      .then(json => json.data)
+  }
 }

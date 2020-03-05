@@ -10,7 +10,7 @@ function HomePage(props) {
   }, [props.groupRepo])
 
   const groupClicked = id => {
-    props.redirectService.getGroupDetailPage(id)
+    props.redirectService.getGroupDetailsPage(id)
   }
 
   const groupList = () => {

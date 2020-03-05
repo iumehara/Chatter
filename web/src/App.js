@@ -1,10 +1,16 @@
 import React from 'react'
 import './App.scss'
-import {BrowserRouter, Route, Switch, useParams} from "react-router-dom"
+import {Route, Router, Switch, useParams} from "react-router-dom"
+import {createBrowserHistory} from 'history'
+import HomePage from './Component/HomePage/HomePage'
+import GroupRepo from './Repo/GroupRepo'
+import RedirectService from './Service/RedirectService'
 
 function App() {
+  const browserHistory = createBrowserHistory()
+  const redirectService = new RedirectService(browserHistory)
   return (
-    <BrowserRouter>
+    <Router history={browserHistory}>
       <div className='App'>
         <Header/>
         <Switch>
@@ -15,11 +21,11 @@ function App() {
             <GroupDetailPage/>
           </Route>
           <Route path='/'>
-            <HomePage/>
+            <HomePage groupRepo={new GroupRepo()} redirectService={redirectService}/>
           </Route>
         </Switch>
       </div>
-    </BrowserRouter>
+    </Router>
   )
 }
 
@@ -42,6 +48,3 @@ function GroupDetailPage() {
   return <h1>{`GROUP DETAIL ${groupId}`}</h1>
 }
 
-function HomePage() {
-  return <h1>My Chat Groups</h1>
-}

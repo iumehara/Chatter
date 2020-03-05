@@ -1,3 +1,30 @@
-.HomePage {
+@import "../../StyleGuide/styleGuide";
 
+.HomePage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+  width: 100%;
+
+  .group {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 800px;
+    margin: 40px;
+    height: 100px;
+    border: 3px solid $background-dark;
+    border-radius: 10px;
+    background-color: $background-light;
+    &:hover {
+      background-color: $background;
+      border-color: $action;
+      cursor: pointer;
+    }
+    .name {
+      font-size: 20px;
+    }
+  }
 }

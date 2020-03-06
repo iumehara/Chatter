@@ -28,6 +28,7 @@ function HomePage(props) {
   return (
     <div className='HomePage'>
       <h1>My Chat Groups</h1>
+      <button onClick={() => props.redirectService.getNewGroupPage()}>Add New Group</button>
       {groupList()}
     </div>
   )

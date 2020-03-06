@@ -6,6 +6,7 @@ import HomePage from './Component/HomePage/HomePage'
 import GroupDetailsPage from './Component/GroupDetailsPage/GroupDetailsPage'
 import GroupRepo from './Repo/GroupRepo'
 import RedirectService from './Service/RedirectService'
+import NewGroupPage from './Component/NewGroupPage/NewGroupPage'
 
 function App() {
   const browserHistory = createBrowserHistory()
@@ -17,7 +18,7 @@ function App() {
         <Header redirectService={redirectService}/>
         <Switch>
           <Route path='/groups/new'>
-            <NewGroupPage/>
+            <NewGroupPage groupRepo={groupRepo} redirectService={redirectService}/>
           </Route>
           <Route path='/groups/:groupId'>
             <GroupDetailsPage groupRepo={groupRepo} redirectService={redirectService}/>
@@ -39,8 +40,4 @@ function Header(props) {
       <div className='name'>Chatter</div>
     </div>
   )
-}
-
-function NewGroupPage() {
-  return <h1>NEW GROUP</h1>
 }

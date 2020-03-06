@@ -18,4 +18,22 @@ export default class GroupRepo {
       .then(response => response.json())
       .then(json => json.data)
   }
+
+  create(newGroup) {
+    const url = `${this.baseUrl}/groups`
+
+    const options = {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+        'Origin': 'http://localhost:3000'
+      },
+      body: JSON.stringify({group: newGroup})
+    }
+
+    return fetchWrapper(url, options)
+      .then(response => response.json())
+      .then(json => json.data)
+  }
 }

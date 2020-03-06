@@ -36,6 +36,17 @@ describe('HomePage', () => {
 
     expect(redirectService.getGroupDetailsPageCalledWith).toEqual('1234567890')
   })
+
+  it('redirects to the New Group Page', async () => {
+    const repo = new StubGroupRepo()
+    const redirectService = new SpyRedirectService()
+    render(<HomePage groupRepo={repo} redirectService={redirectService}/>)
+
+    await waitForElement(() => screen.getByText(/Add New Group/i))
+    fireEvent.click(screen.getByText(/Add New Group/i))
+
+    expect(redirectService.getNewGroupPageCalled).toEqual(true)
+  })
 })
 
 class StubGroupRepo {
@@ -51,9 +62,14 @@ class StubGroupRepo {
 }
 
 class SpyRedirectService {
+  getNewGroupPageCalled = false
   getGroupDetailsPageCalledWith = null
 
   getGroupDetailsPage(groupId) {
     this.getGroupDetailsPageCalledWith = groupId
+  }
+
+  getNewGroupPage() {
+    this.getNewGroupPageCalled = true
   }
 }

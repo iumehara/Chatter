@@ -10,6 +10,11 @@ export default class RedirectService {
     this.history.push(route)
   }
 
+  getNewGroupPage(groupId) {
+    const route = `/groups/new`
+    this.history.push(route)
+  }
+
   getGroupDetailsPage(groupId) {
     const route = `/groups/${groupId}`
     this.history.push(route)

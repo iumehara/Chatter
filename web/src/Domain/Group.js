@@ -12,3 +12,9 @@ export class GroupDetails {
     this.messages = messages
   }
 }
+
+export class NewGroup {
+  constructor(name) {
+    this.name = name
+  }
+}

@@ -1,0 +1,25 @@
+button {
+  height: 60px;
+  width: 200px;
+  border-radius: 10px;
+  font-size: 16px;
+
+  background-color: $background-dark;
+  border: 2px solid black;
+
+  &:hover {
+    background-color: $background;
+    border: 2px solid $background-dark;
+    cursor: pointer;
+  }
+
+  &.action {
+    background-color: $action-light;
+    border: 2px solid $action;
+
+    &:hover {
+      background-color: $action;
+      border: 2px solid $action-dark;
+    }
+  }
+}

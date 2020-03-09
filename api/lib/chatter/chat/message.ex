@@ -6,6 +6,7 @@ defmodule Chatter.Chat.Message do
   @foreign_key_type :binary_id
   schema "messages" do
     field :content, :string
+    field :username, :string
 
     timestamps()
 
@@ -15,7 +16,7 @@ defmodule Chatter.Chat.Message do
   @doc false
   def changeset(message, attrs) do
     message
-    |> cast(attrs, [:content, :group_id])
-    |> validate_required([:content, :group_id])
+    |> cast(attrs, [:content, :username, :group_id])
+    |> validate_required([:content, :username, :group_id])
   end
 end

@@ -32,13 +32,14 @@ defmodule Chatter.ChatTest do
 
     test "get_group!/1 returns the group with given id" do
       group = group_fixture()
-      {:ok, message} = Chat.create_message(%{content: "first message", group_id: group.id})
+      {:ok, message} = Chat.create_message(%{content: "first message", username: "Amy", group_id: group.id})
       assert %Group{
                id: group_id,
                name: "some name",
                messages: [
                  %Message{
                    id: message_id,
+                   username: "Amy",
                    content: "first message"
                  }
                ]
@@ -60,7 +61,7 @@ defmodule Chatter.ChatTest do
   describe "messages" do
     alias Chatter.Chat.Message
 
-    @valid_attrs %{content: "some content"}
+    @valid_attrs %{content: "some content", username: "Amy"}
     @invalid_attrs %{content: nil}
 
     def message_fixture(attrs \\ %{}) do
@@ -84,7 +85,7 @@ defmodule Chatter.ChatTest do
       assert {
                :ok,
                %Message{} = message
-             } = Chat.create_message(%{content: "some content", group_id: group.id})
+             } = Chat.create_message(%{content: "some content", username: "Amy", group_id: group.id})
       assert message.content == "some content"
     end
 

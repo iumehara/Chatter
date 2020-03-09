@@ -34,8 +34,8 @@ class StubGroupRepo {
       'asdfghjkl',
       'Group 1',
       [
-        new Message("message-id-1", "Hi there"),
-        new Message("message-id-2", "hey, how's it going?")
+        new Message("message-id-1", "Hi there", "Amy"),
+        new Message("message-id-2", "hey, how's it going?", "Bob")
       ]
     )
     return Promise.resolve(groupDetails)

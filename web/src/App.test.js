@@ -10,11 +10,4 @@ describe('App', () => {
     const headerText = getByText(/Chatter/i)
     expect(headerText).toBeInTheDocument()
   })
-
-  it('renders Home page by default', async() => {
-    const {getByText} = render(<App/>)
-    await waitForElement(() => screen.getByText(/Chatter/i))
-    const homePageText = getByText(/My Chat Groups/i)
-    expect(homePageText).toBeInTheDocument()
-  })
 })

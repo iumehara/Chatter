@@ -5,22 +5,85 @@
   flex-direction: column;
   align-items: center;
   box-sizing: border-box;
-  width: 100%;
 
-  .message {
+  .message-list {
+    width: 900px;
+
+    .message-area {
+      display: flex;
+      align-items: flex-start;
+      margin-bottom: 20px;
+
+      .message {
+        box-sizing: border-box;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+        border: 3px solid $text-light;
+        border-radius: 50px;
+        border-top-left-radius: 0;
+        background-color: $background-dark;
+
+        .content {
+          overflow-wrap: break-word;
+          font-size: 20px;
+          max-width: 560px;
+          height: auto;
+        }
+      }
+
+      .username {
+        text-align: right;
+        box-sizing: border-box;
+        width: 300px;
+        padding-right: 20px;
+        font-size: 20px;
+        font-weight: bold;
+        color: $text-dark;
+      }
+
+      &.self {
+        flex-direction: row-reverse;
+
+        .message {
+          border: 3px solid $action-dark;
+          border-radius: 50px;
+          border-top-right-radius: 0;
+          background-color: $action;
+        }
+
+        .username {
+          text-align: left;
+          padding-left: 20px;
+        }
+      }
+    }
+  }
+
+  .form {
+    width: 400px;
+    font-size: 20px;
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
-    width: 100%;
-    max-width: 800px;
-    margin: 40px;
-    padding: 20px;
-    border: 3px solid $action-dark;
-    border-radius: 50px;
-    border-bottom-right-radius: 0;
-    background-color: $action;
-    .content {
+
+    div {width: 100%}
+
+    input {
+      height: 40px;
+      width: 100%;
+      border-radius: 5px;
       font-size: 20px;
+      margin-bottom: 20px;
+    }
+
+    textarea {
+      height: 80px;
+      width: 100%;
+      border-radius: 5px;
+      font-size: 20px;
+      margin-bottom: 20px;
     }
   }
 }

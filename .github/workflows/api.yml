@@ -1,8 +1,8 @@
-name: Elixir CI
+name: API CI
 
 on:
   push:
-    branches: [ master, ci-elixir ]
+    branches: [ master, ci, ci-elixir ]
   pull_request:
     branches: [ master ]
 

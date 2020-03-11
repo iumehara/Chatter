@@ -18,9 +18,10 @@ jobs:
       with:
         elixir-version: 1.10.2
         otp-version: 22
-    - name: Change Directory
-      run: cd api
     - name: Install Dependencies
       run: mix deps.get
+      working-directory: api
     - name: Run Tests
       run: mix test
+      working-directory: api
+

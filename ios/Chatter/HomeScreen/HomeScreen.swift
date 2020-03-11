@@ -7,7 +7,13 @@ struct HomeScreen: View {
         NavigationView {
             List {
                 ForEach(viewModel.groups) { group in
-                    GroupRow(group: group)
+                    NavigationLink(destination:
+                        GroupDetailScreen(groupId: group.id)
+                            .environmentObject(GroupDetailScreenViewModel(groupId: group.id, groupRepo: GroupRepo()))
+
+                    ) {
+                        GroupRow(group: group)
+                    }
                 }
             }
             .navigationBarTitle(Text("My Chat Groups"))

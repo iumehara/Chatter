@@ -5,8 +5,8 @@ struct Group: Hashable, Codable, Identifiable {
     var name: String
 }
 
-struct Message: Hashable, Codable, Identifiable {
+struct GroupDetail: Hashable, Codable, Identifiable {
     var id: UUID
-    var content: String
-    var username: String
+    var name: String
+    var messages: [Message]
 }

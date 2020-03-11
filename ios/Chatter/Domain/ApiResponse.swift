@@ -1,5 +1,5 @@
 import Foundation
 
-struct ApiResponse: Codable {
-    var data: [Group]
+struct ApiResponse<T: Codable>: Codable {
+    var data: T
 }

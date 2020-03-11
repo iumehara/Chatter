@@ -7,11 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AE08F9152418D36700FC2F07 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE08F9142418D36700FC2F07 /* Message.swift */; };
 		AE1CBBAE24177D3200F1AC79 /* ViewInspector in Frameworks */ = {isa = PBXBuildFile; productRef = AE1CBBAD24177D3200F1AC79 /* ViewInspector */; };
 		AE1CBBB024178C2800F1AC79 /* GroupRowHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1CBBAF24178C2800F1AC79 /* GroupRowHelper.swift */; };
 		AEB195A32418B03200281A9C /* ChatterError.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB195A22418B03200281A9C /* ChatterError.swift */; };
 		AEB195A52418B9A200281A9C /* ApiResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB195A42418B9A200281A9C /* ApiResponse.swift */; };
 		AEB195A72418BC3F00281A9C /* HomeScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB195A62418BC3F00281A9C /* HomeScreenViewModel.swift */; };
+		AEB195AC2418C08400281A9C /* GroupDetailScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB195AB2418C08400281A9C /* GroupDetailScreen.swift */; };
+		AEB195AE2418C23000281A9C /* GroupDetailScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB195AD2418C23000281A9C /* GroupDetailScreenViewModel.swift */; };
 		AED8CAEF24175B98003668AC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AED8CAEE24175B98003668AC /* AppDelegate.swift */; };
 		AED8CAF124175B98003668AC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AED8CAF024175B98003668AC /* SceneDelegate.swift */; };
 		AED8CAF524175B99003668AC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AED8CAF424175B99003668AC /* Assets.xcassets */; };
@@ -43,10 +46,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		AE08F9142418D36700FC2F07 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		AE1CBBAF24178C2800F1AC79 /* GroupRowHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupRowHelper.swift; sourceTree = "<group>"; };
 		AEB195A22418B03200281A9C /* ChatterError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatterError.swift; sourceTree = "<group>"; };
 		AEB195A42418B9A200281A9C /* ApiResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiResponse.swift; sourceTree = "<group>"; };
 		AEB195A62418BC3F00281A9C /* HomeScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenViewModel.swift; sourceTree = "<group>"; };
+		AEB195AB2418C08400281A9C /* GroupDetailScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupDetailScreen.swift; sourceTree = "<group>"; };
+		AEB195AD2418C23000281A9C /* GroupDetailScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupDetailScreenViewModel.swift; sourceTree = "<group>"; };
 		AED8CAEB24175B98003668AC /* Chatter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Chatter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AED8CAEE24175B98003668AC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AED8CAF024175B98003668AC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -92,6 +98,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AEB195AA2418C07400281A9C /* GroupDetailScreen */ = {
+			isa = PBXGroup;
+			children = (
+				AEB195AB2418C08400281A9C /* GroupDetailScreen.swift */,
+				AEB195AD2418C23000281A9C /* GroupDetailScreenViewModel.swift */,
+			);
+			path = GroupDetailScreen;
+			sourceTree = "<group>";
+		};
 		AED8CAE224175B98003668AC = {
 			isa = PBXGroup;
 			children = (
@@ -115,6 +130,7 @@
 		AED8CAED24175B98003668AC /* Chatter */ = {
 			isa = PBXGroup;
 			children = (
+				AEB195AA2418C07400281A9C /* GroupDetailScreen */,
 				AED8CB372417795D003668AC /* HomeScreen */,
 				AED8CB2324175CA8003668AC /* Domain */,
 				AED8CB2024175C44003668AC /* Repo */,
@@ -166,9 +182,10 @@
 		AED8CB2324175CA8003668AC /* Domain */ = {
 			isa = PBXGroup;
 			children = (
-				AED8CB2424175CB5003668AC /* Group.swift */,
-				AEB195A22418B03200281A9C /* ChatterError.swift */,
 				AEB195A42418B9A200281A9C /* ApiResponse.swift */,
+				AEB195A22418B03200281A9C /* ChatterError.swift */,
+				AED8CB2424175CB5003668AC /* Group.swift */,
+				AE08F9142418D36700FC2F07 /* Message.swift */,
 			);
 			path = Domain;
 			sourceTree = "<group>";
@@ -322,13 +339,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AEB195AC2418C08400281A9C /* GroupDetailScreen.swift in Sources */,
 				AED8CB3424177447003668AC /* GroupRepo.swift in Sources */,
 				AEB195A72418BC3F00281A9C /* HomeScreenViewModel.swift in Sources */,
 				AED8CB1F24175C08003668AC /* HomeScreen.swift in Sources */,
 				AED8CAEF24175B98003668AC /* AppDelegate.swift in Sources */,
+				AEB195AE2418C23000281A9C /* GroupDetailScreenViewModel.swift in Sources */,
 				AED8CB29241760D1003668AC /* GroupRow.swift in Sources */,
 				AED8CAF124175B98003668AC /* SceneDelegate.swift in Sources */,
 				AEB195A52418B9A200281A9C /* ApiResponse.swift in Sources */,
+				AE08F9152418D36700FC2F07 /* Message.swift in Sources */,
 				AEB195A32418B03200281A9C /* ChatterError.swift in Sources */,
 				AED8CB2524175CB5003668AC /* Group.swift in Sources */,
 			);

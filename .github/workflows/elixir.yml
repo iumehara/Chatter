@@ -36,7 +36,6 @@ jobs:
         mix ecto.create
         mix test
       env:
-        DB_HOST: postgres
         MIX_ENV: test
       working-directory: api
 

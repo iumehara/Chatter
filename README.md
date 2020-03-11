@@ -1,6 +1,11 @@
 # Chatter
 Elixir/Phoenix + React Hooks Chat app
 
+![](https://github.com/iumehara/Chatter/workflows/API%20CI/badge.svg)
+![](https://github.com/iumehara/Chatter/workflows/Web%20CI/badge.svg)
+
+
+
 ![ScreenShot](/ScreenShot.png?raw=true)
 
 # System Dependencies

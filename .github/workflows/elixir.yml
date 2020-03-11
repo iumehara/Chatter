@@ -31,6 +31,11 @@ jobs:
     - name: Install Dependencies
       run: mix deps.get
       working-directory: api
+    - name: Create Test Database
+      run: mix ecto.create
+      env:
+        MIX_ENV: test
+      working-directory: api
     - name: Run Tests
       run: mix test
       env:

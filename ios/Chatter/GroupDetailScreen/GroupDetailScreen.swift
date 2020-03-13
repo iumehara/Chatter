@@ -2,6 +2,7 @@ import SwiftUI
 
 struct GroupDetailScreen: View {
     @EnvironmentObject var viewModel: GroupDetailScreenViewModel
+    @ObservedObject var keyboardHelper: KeyboardHelper = KeyboardHelper()
     
     init() {
         UITableView.appearance().separatorColor = .clear
@@ -11,15 +12,15 @@ struct GroupDetailScreen: View {
         NavigationView {
             VStack {
                 Text(viewModel.title)
-                
                 List {
                     ForEach(viewModel.messages) { message in
                         MessageRow(message: message)
                     }
                 }
 
-                Spacer()
+                MessageForm(viewModel: viewModel)
             }
+            .padding(.bottom, keyboardHelper.height)
         }
         .onAppear(perform: viewModel.onAppear)
         .onDisappear(perform: viewModel.onDisappear)

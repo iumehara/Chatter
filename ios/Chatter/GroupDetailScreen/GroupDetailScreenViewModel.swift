@@ -5,6 +5,8 @@ final class GroupDetailScreenViewModel: ObservableObject {
     @Published var groupDetail: GroupDetail? = nil
     @Published var messages: [Message] = []
     @Published var title: String = "Loading Group..."
+    @Published var username: String = "Anonymous"
+    @Published var messageContent: String = ""
     
     private var groupId: UUID
     private var groupRepo: GroupRepo

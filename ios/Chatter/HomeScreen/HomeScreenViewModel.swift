@@ -3,6 +3,7 @@ import Combine
 
 final class HomeScreenViewModel: ObservableObject {
     @Published var groups: [Group] = []
+    @Published var messages: [Message] = []
 
     private var groupRepo: GroupRepo
     private var disposables = Set<AnyCancellable>()
@@ -11,7 +12,7 @@ final class HomeScreenViewModel: ObservableObject {
         self.groupRepo = groupRepo
     }
     
-    func loadData() {
+    func onAppear() {
         groupRepo.getList()
         .receive(on: DispatchQueue.main)
         .sink(

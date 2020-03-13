@@ -8,9 +8,9 @@ struct HomeScreen: View {
             List {
                 ForEach(viewModel.groups) { group in
                     NavigationLink(destination:
-                        GroupDetailScreen(groupId: group.id)
-                            .environmentObject(GroupDetailScreenViewModel(groupId: group.id, groupRepo: GroupRepo()))
-
+                        GroupDetailScreen()
+                            .environmentObject(GroupDetailScreenViewModel(groupId: group.id,
+                                                                          groupRepo: GroupRepo()))
                     ) {
                         GroupRow(group: group)
                     }
@@ -18,11 +18,7 @@ struct HomeScreen: View {
             }
             .navigationBarTitle(Text("My Chat Groups"))
         }
-        .onAppear(perform: fetchData)
-    }
-    
-    private func fetchData() {
-        viewModel.loadData()
+        .onAppear(perform: viewModel.onAppear)
     }
 }
 

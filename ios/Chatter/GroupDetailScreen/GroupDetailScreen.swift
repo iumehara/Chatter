@@ -3,6 +3,10 @@ import SwiftUI
 struct GroupDetailScreen: View {
     @EnvironmentObject var viewModel: GroupDetailScreenViewModel
     
+    init() {
+        UITableView.appearance().separatorColor = .clear
+    }
+    
     var body: some View {
         NavigationView {
             VStack {
@@ -10,10 +14,7 @@ struct GroupDetailScreen: View {
                 
                 List {
                     ForEach(viewModel.messages) { message in
-                        HStack {
-                            Text(message.content)
-                            Spacer()
-                        }
+                        MessageRow(message: message)
                     }
                 }
 
@@ -23,7 +24,7 @@ struct GroupDetailScreen: View {
         .onAppear(perform: viewModel.onAppear)
         .onDisappear(perform: viewModel.onDisappear)
     }
- }
+}
 
 struct GroupDetailScreen_Previews: PreviewProvider {
     static var previews: some View {
